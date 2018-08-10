@@ -10,15 +10,13 @@ end
 gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
 gem 'unicorn'
+gem 'pg'
 
 group :production do
-    gem 'pg'
 
 end
 
 group :development, :test do
-    gem 'sqlite3'
-
     gem 'pry-rails'
     gem 'pry-doc'
     gem 'pry-stack_explorer'
