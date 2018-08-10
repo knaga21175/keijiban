@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @keiji.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @keiji.end %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @keiji.category %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @keiji.title %>
+</p>
+
+<p>
+  <strong>Viewcount:</strong>
+  <%= @keiji.viewcount %>
+</p>
+
+<%= link_to 'Edit', edit_keiji_path(@keiji) %> |
+<%= link_to 'Back', keijis_path %>

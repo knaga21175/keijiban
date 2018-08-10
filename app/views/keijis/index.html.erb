@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Keijis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Start</th>
+      <th>End</th>
+      <th>Category</th>
+      <th>Title</th>
+      <th>Viewcount</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @keijis.each do |keiji| %>
+      <tr>
+        <td><%= keiji.start %></td>
+        <td><%= keiji.end %></td>
+        <td><%= keiji.category %></td>
+        <td><%= keiji.title %></td>
+        <td><%= keiji.viewcount %></td>
+        <td><%= link_to 'Show', keiji %></td>
+        <td><%= link_to 'Edit', edit_keiji_path(keiji) %></td>
+        <td><%= link_to 'Destroy', keiji, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Keiji', new_keiji_path %>

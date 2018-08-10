@@ -1,0 +1,42 @@
+<%= form_with(model: keiji, local: true) do |form| %>
+  <% if keiji.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(keiji.errors.count, "error") %> prohibited this keiji from being saved:</h2>
+
+      <ul>
+      <% keiji.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :start %>
+    <%= form.date_select :start, id: :keiji_start %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end %>
+    <%= form.date_select :end, id: :keiji_end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.number_field :category, id: :keiji_category %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :keiji_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :viewcount %>
+    <%= form.number_field :viewcount, id: :keiji_viewcount %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
