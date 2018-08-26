@@ -1,5 +1,68 @@
-<h1>New Keiji</h1>
+<% if false %>
+<h2>＜掲示物 登録＞</h2>
+<br/>
+    <%= form_with model:keiji, local: true do |f| %>
+        <div class="field">
+            掲示終了日付:
+            <input type="text" id="datepicker" name="end[date]" placeholder="掲示終了日を選択してください" readonly="readonly" size=25>
+            <br><br>
+            <fieldset> <legend>ファイルを指定してください（PDFファイル）</legend>
+                <%= f.file_field :avatar, :accept => 'application/pdf', :size=>'30', :placeholder=>"PDFファイルを選択してください" %>
+            </fieldset><br/>
+        </div>
+        <div class="actions">　<%= f.submit "登　録", data:{confirm: "タイトルは入力しましたか？\n工区・レベルは間違いありませんか？\n登録しますか？", disable_with: "送信中..."} %></div>
+    <% end %>
+<%= render 'form' %>
+</div>
+<div class = "notice">
+<%= notice %>
+</div>
+</div>
+<% end %>
 
+<%= form_with(model: @keiji, local: true) do |form| %>
+  <% if @keiji.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@keiji.errors.count, "error") %> prohibited this keiji from being saved:</h2>
+
+      <ul>
+      <% @keiji.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :start, :value=>Date.today %>
+  <%= form.hidden_field :viewcount, :value=>0 %>
+
+  <div class="field">
+    タイトル：  <%= form.text_field :title, :size=>'30', id: :keiji_title %><br/><br/>
+  </div>
+
+  <div class="field">
+    掲示終了日付:
+        <input type="text" id="datepicker" name="keiji[end]" placeholder="終了日を選択してください" readonly="readonly" size=28>
+        <br><br>
+  </div>
+
+  <div class="field">
+    <%= form.label "カテゴリ：" %>
+    <%= form.collection_select :category_id, @category, :id, :label %>
+  </div>
+
+    <legend>ファイルを指定してください（PDFファイル）</legend>
+    <%= form.file_field :pdffile, :accept => 'application/pdf', :size=>'30', :placeholder=>"PDFファイルを選択してください" %>
+
+
+  <div class="actions">
+    <%= form.submit "登　録", data:{confirm: "タイトルは入力しましたか？\n掲示終了日・カテゴリは間違いありませんか？\n登録しますか？", disable_with: "送信中..."}%>
+  </div>
+<% end %>
+
+<%# ------------------------------------- %>
+<% if false %>
 <%= render 'form', keiji: @keiji %>
+<% end %>
 
 <%= link_to 'Back', keijis_path %>

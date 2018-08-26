@@ -39,3 +39,8 @@ schema.rb
 /node_modules
 /yarn-error.log
 .byebug_history
+/public/system
+
+# パスワードなど記述するので、GitHubにアップしない
+# サーバには個別にコピーが必要になる
+.env

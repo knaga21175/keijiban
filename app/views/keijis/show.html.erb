@@ -12,12 +12,13 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @keiji.category %>
+  <%= Category.find(@keiji.category_id).label %>
 </p>
 
 <p>
   <strong>Title:</strong>
-  <%= @keiji.title %>
+  <a href=<%= ("../" + @keiji.pdffile.url(:original)) %> target="_blank"><%= @keiji.title %></a>
+
 </p>
 
 <p>

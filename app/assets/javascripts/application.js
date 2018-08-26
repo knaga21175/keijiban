@@ -13,3 +13,11 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+// カレンダー表示用
+$(function(){
+    　$("#datepicker").datepicker();
+    　$( "#datepicker" ).datepicker( "option", 'minDate', new Date() );
+    　$( "#datepicker" ).datepicker( "option", 'maxDate', "+1m" );
+    });
+    

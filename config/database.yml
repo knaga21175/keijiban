@@ -7,9 +7,10 @@
 default: &default
   adapter: postgresql
   database: keiji-am7
-  username: rails
-  password: rails
-  host: localhost
+  username: postgres
+  password: dbkomekome
+  pool: 5
+  host: db
   encoding: utf8
 
 development:

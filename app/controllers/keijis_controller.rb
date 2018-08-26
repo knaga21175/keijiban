@@ -1,4 +1,5 @@
 class KeijisController < ApplicationController
+  before_action :store_logged_in, only: [:new, :edit, :create, :destroy]
   before_action :set_keiji, only: [:show, :edit, :update, :destroy]
 
   # GET /keijis
@@ -10,11 +11,23 @@ class KeijisController < ApplicationController
   # GET /keijis/1
   # GET /keijis/1.json
   def show
+    ### 閲覧数をカウントするために、あえてshowメソッドを通過させている
+    _k = Keiji.find(params[:id])
+    if( _k.pdffile_file_name != nil )
+        _path = "/" + _k.pdffile.url(:original) 
+        _k.viewcount += 1 
+        _k.save
+        
+        redirect_to _path
+    else
+        redirect_to action: 'index', notice: '表示するデータがありません' 
+    end
   end
 
   # GET /keijis/new
   def new
     @keiji = Keiji.new
+    @category = Category.all
   end
 
   # GET /keijis/1/edit
@@ -31,6 +44,7 @@ class KeijisController < ApplicationController
         format.html { redirect_to @keiji, notice: 'Keiji was successfully created.' }
         format.json { render :show, status: :created, location: @keiji }
       else
+        @category = Category.all
         format.html { render :new }
         format.json { render json: @keiji.errors, status: :unprocessable_entity }
       end
@@ -69,6 +83,7 @@ class KeijisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def keiji_params
-      params.require(:keiji).permit(:start, :end, :category, :title, :viewcount)
+      params.require(:keiji).permit(:start, :end, :category_id, :title, :viewcount, :pdffile, :pdffile_file_name, :pdffile_content_type, :pdffile_file_size, :pdffile_updated_at )
+      
     end
 end
