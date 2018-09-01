@@ -7,6 +7,16 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    models:
+      user: ユーザ
+    attributes:
+      user:
+        roomno: 部屋番号
+        mail: メールアドレス
+      keiji:
+        title: タイトル
+        end: 終了日
+        pdffile: ファイル
   date:
     abbr_day_names:
     - 日
@@ -205,3 +215,4 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+ 

@@ -1,4 +1,4 @@
-class MyMailer < MyMailer
+class MyMailer < ActionMailer::Base
     default :from => ENV['MAIL_ADDRESS']
     layout 'mailer'
     

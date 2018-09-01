@@ -1,11 +1,15 @@
 class KeijisController < ApplicationController
-  before_action :store_logged_in, only: [:new, :edit, :create, :destroy]
+  before_action :store_logged_in, only: [:new, :edit, :create, :update, :destroy, :kanri]
   before_action :set_keiji, only: [:show, :edit, :update, :destroy]
 
   # GET /keijis
   # GET /keijis.json
   def index
-    @keijis = Keiji.all
+    @keijis = Keiji.order("created_at DESC")
+  end
+
+  def kanri
+    @keijis = Keiji.order("created_at DESC")
   end
 
   # GET /keijis/1
@@ -42,14 +46,14 @@ class KeijisController < ApplicationController
     respond_to do |format|
       if @keiji.save
           # mail配信
-          _usr = user.all
+          _usr = User.all
           _usr.each do |r|
               if ( r.mail.presence )
-                  MyMailer.notice( @keiji, r.mail ).deliver
+                  MyMailer.kokuti( @keiji, r.mail ).deliver
               end
           end
         
-        format.html { redirect_to @keiji, notice: 'Keiji was successfully created.' }
+        format.html { redirect_to kanri_keiji_path, notice: '登録しました' }
         format.json { render :show, status: :created, location: @keiji }
       else
         @category = Category.all
@@ -64,7 +68,7 @@ class KeijisController < ApplicationController
   def update
     respond_to do |format|
       if @keiji.update(keiji_params)
-        format.html { redirect_to @keiji, notice: 'Keiji was successfully updated.' }
+        format.html { redirect_to kanri_keiji_path, notice: '更新しました' }
         format.json { render :show, status: :ok, location: @keiji }
       else
         format.html { render :edit }
@@ -78,7 +82,7 @@ class KeijisController < ApplicationController
   def destroy
     @keiji.destroy
     respond_to do |format|
-      format.html { redirect_to keijis_url, notice: 'Keiji was successfully destroyed.' }
+      format.html { redirect_to kanri_keiji_path, notice: '削除しました' }
       format.json { head :no_content }
     end
   end

@@ -1,8 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Keijis</h1>
-
-<table>
+<h1 align=center>掲示板</h1>
+<br>
+<div align=center>
+<%= link_to '掲示物追加', new_keiji_path, :style=>"font-size: 2em;"%>｜<%= link_to 'カテゴリ追加', new_category_path, :style=>"font-size: 2em;"%>
+</div>
+<br>
+<p align=center id="notice"><%= notice %></p>
+<br>
+<table align=center>
   <thead>
     <tr>
       <th>カテゴリ</th>
@@ -17,28 +21,22 @@
   <tbody>
     <% @keijis.each do |keiji| %>
       <tr>
-        <% _cat = Category.find_by_id( keiji.category_id ) %>
-        <% if _cat != nil %>
-            <td><%= _cat.label %></td>
-        <% else %>
-            <td></td>
-        <% end %>
-        <% if keiji.pdffile_file_name != nil %>
-            <td><a href=<%= ("../" + keiji.pdffile.url(:original)) %> target="_blank"><%= keiji.title %></a></td>
-        <% else %>
-            <td></td>
-        <% end %>
-        <td><%= keiji.start %></td>
-        <td><%= keiji.end %></td>
-        <td><%= keiji.viewcount %></td>
-        <% if keiji.pdffile_file_name != nil %>
-            <td><a href=<%= ("../" + keiji.pdffile.url(:original)) %> target="_blank">内容表示</a></td>
-        <% else %>
-            <td></td>
-        <% end %>
-        <td><%= link_to '内容変更', keiji %></td>
+        <td align=center>
+            <% _cat = Category.find_by_id( keiji.category_id ) %>
+            <% if _cat != nil %>
+                <%= _cat.label %>
+            <% end %>
+        </td>
+        <td width="300">
+            <% if keiji.pdffile_file_name != nil %>
+                <a href=<%= ("../" + keiji.pdffile.url(:original)) %> target="_blank"><%= keiji.title %></a>
+            <% end %>
+        </td>
+        <td align=center ><%= keiji.start %></td>
+        <td align=center><%= keiji.end %></td>
+        <td align=center><%= keiji.viewcount %></td>
         <td><%= link_to '内容変更', edit_keiji_path(keiji) %></td>
-        <td><%= link_to '削除', keiji, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '削除', keiji, method: :delete, data: { confirm: '削除してよろしいですか?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -46,4 +44,3 @@
 
 <br>
 
-<%= link_to 'New Keiji', new_keiji_path %>

@@ -1,3 +1,20 @@
 // Place all the styles related to the keijis controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+BODY{
+    background: image-url('back.jpg');
+    /* 画像を常に天地左右の中央に配置 */
+    background-position: center center;
+    
+    /* 画像をタイル状に繰り返し表示しない */
+    background-repeat: no-repeat;
+    
+    /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+    background-attachment: fixed;
+    
+    /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+    background-size: cover;
+    
+    /* 背景画像が読み込まれる前に表示される背景のカラー */
+    background-color: #464646;
+}

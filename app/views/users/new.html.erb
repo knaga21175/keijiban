@@ -1,11 +1,11 @@
-<h1>ユーザー登録</h1>
+<h1>お知らせメール登録</h1>
 
-<%= form_with(model: user, local: true) do |form| %>
-    <% if user.errors.any? %>
+<%= form_with(model: @user, local: true) do |form| %>
+    <% if @user.errors.any? %>
         <div id="error_explanation">
-            <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+            <h2><%= pluralize(@user.errors.count, "箇所") %> のエラーがあります:</h2>
             <ul>
-                <% user.errors.full_messages.each do |message| %>
+                <% @user.errors.full_messages.each do |message| %>
                     <li><%= message %></li>
                 <% end %>
             </ul>
@@ -13,12 +13,14 @@
     <% end %>
 
     <div class="field">
-        <%= form.label "部屋番号：" %>
-        <%= form.number_field :roomno, id: :user_roomno, :size=>6, :maxlength=>4 %>
-        <%= form.label "メールアドレス：" %><br />
-        <%= form.email_field :mail, id: :user_email %>
+        <%= "部屋番号：" %>
+        <div text-align=center>
+        <%= form.text_field :roomno, id: :user_roomno, :size=>4, :maxlength=>4 %><br /><br>
+        </div>
+        <%= "メールアドレス：" %><br>
+        <%= form.email_field :mail, id: :user_email, :size=>30 %>
     </div>
     <div class="actions">
-        <%= form.submit "新規登録"%>
+        <%= form.submit "登録"%>
     </div>
 <% end %>

@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Categories</h1>
+<h1>カテゴリ設定</h1>
 
 <table>
   <thead>
     <tr>
-      <th>String</th>
+      <th></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,9 +14,8 @@
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.label %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '修正', edit_category_path(category) %></td>
+        <td><%= link_to '削除', category, method: :delete, data: { confirm: '削除すると掲示板で設定されていたの表示が消えますがよろしいですか？' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +23,4 @@
 
 <br>
 
-<%= link_to 'New Category', new_category_path %>
+<%= link_to '新しいカテゴリを追加', new_category_path %> | <%= link_to '掲示板にもどる', kanri_keiji_path %>

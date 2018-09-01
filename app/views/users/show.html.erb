@@ -1,14 +1,23 @@
 <p id="notice"><%= notice %></p>
+<br>
 
-<p>
-  <strong>Mail:</strong>
-  <%= @user.mail %>
-</p>
+<P><B>携帯電話会社のメールアドレス（XXX@docomo.co.jpなど）をご登録頂いた方</B></P>
+<P STYLE="margin-left: 0.93cm; margin-right: 1.69cm; text-indent: -0.03cm; page-break-before: auto">
+迷惑メール拒否の設定をされている場合は、メールが不達となる場合があります。お手数ですが、メールを受信許可設定していただくようにお願いします。</P>
+<P STYLE="margin-left: 0.93cm; margin-right: 1.69cm; text-indent: -0.03cm; page-break-before: auto">
+登録いただくメールアドレス：<%=ENV['MAIL_ADDRESS']%></p>
+<P STYLE="text-indent: 0.9cm; page-break-before: auto"><FONT COLOR="#ff00ff"><SPAN STYLE="background: #ffff00"><B>【設定方法】</B></SPAN></FONT></P>
+<P STYLE="text-indent: 1.61cm; margin-bottom: 0cm; page-break-before: auto">
+<A HREF="https://www.nttdocomo.co.jp/info/spam_mail/domain/" TARGET="_blank">ドコモ</A></P>
+<P STYLE="text-indent: 1.61cm; margin-bottom: 0cm"><SPAN LANG="ja-JP">　　</SPAN>ドコモメールアプリ／iモードメール表示からの操作がおすすめ</p>
+<BR>
+<P STYLE="text-indent: 1.61cm; margin-bottom: 0cm"><FONT FACE="Times New Roman, serif"><SPAN LANG="en-US"><A HREF="http://www.au.kddi.com/support/mobile/trouble/forestalling/mail/anti-spam/fillter/function-11/" TARGET="_blank"><FONT COLOR="#3333ff"><U><B>AU</B></U></FONT></A></SPAN></FONT></P>
+<P STYLE="text-indent: 1.61cm; margin-bottom: 0cm"><SPAN LANG="ja-JP">　　</SPAN>[完全一致]指定で[受信許可]登録</P>
+<BR>
+<BR>
+<P STYLE="text-indent: 1.61cm; margin-bottom: 0cm"><A HREF="http://www.softbank.jp/mobile/support/antispam/settings/indivisual/whiteblack/" TARGET="_blank"><FONT COLOR="#3333ff"><U>ソフトバンク</U></FONT></A></p>
+<P STYLE="text-indent: 1.61cm; margin-bottom: 0cm"><SPAN LANG="ja-JP">　　</SPAN>[受信許可リスト設定]で完全一致指定で[受信許可]登録</P>
+<BR><BR>
 
-<p>
-  <strong>Roomno:</strong>
-  <%= @user.roomno %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<br>
+<%= link_to '掲示板へ', keijis_path, :style=>"font-size: 1.5em;" %> 
