@@ -41,6 +41,14 @@ class KeijisController < ApplicationController
 
     respond_to do |format|
       if @keiji.save
+          # mail配信
+          _usr = user.all
+          _usr.each do |r|
+              if ( r.mail.presence )
+                  MyMailer.notice( @keiji, r.mail ).deliver
+              end
+          end
+        
         format.html { redirect_to @keiji, notice: 'Keiji was successfully created.' }
         format.json { render :show, status: :created, location: @keiji }
       else
@@ -84,6 +92,5 @@ class KeijisController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def keiji_params
       params.require(:keiji).permit(:start, :end, :category_id, :title, :viewcount, :pdffile, :pdffile_file_name, :pdffile_content_type, :pdffile_file_size, :pdffile_updated_at )
-      
     end
 end

@@ -1,5 +1,24 @@
-<h1>New User</h1>
+<h1>ユーザー登録</h1>
 
-<%= render 'form', user: @user %>
+<%= form_with(model: user, local: true) do |form| %>
+    <% if user.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+            <ul>
+                <% user.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
 
-<%= link_to 'Back', users_path %>
+    <div class="field">
+        <%= form.label "部屋番号：" %>
+        <%= form.number_field :roomno, id: :user_roomno, :size=>6, :maxlength=>4 %>
+        <%= form.label "メールアドレス：" %><br />
+        <%= form.email_field :mail, id: :user_email %>
+    </div>
+    <div class="actions">
+        <%= form.submit "新規登録"%>
+    </div>
+<% end %>
