@@ -10,14 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
 //= require turbolinks
 //= require_tree .
 
-// カレンダー表示用
+    // カレンダー表示用
 $(function(){
     　$("#datepicker").datepicker();
     　$( "#datepicker" ).datepicker( "option", 'minDate', new Date() );
-    　$( "#datepicker" ).datepicker( "option", 'maxDate', "+1m" );
+    　$( "#datepicker" ).datepicker( "option", 'maxDate', "+6m" );
     });
     

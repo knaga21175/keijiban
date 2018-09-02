@@ -5,12 +5,6 @@
 //= require_self
 //= require_tree ./channels
 
-$(function(){
-  　$("#datepicker").datepicker();
-  　$( "#datepicker" ).datepicker( "option", 'minDate', new Date() );
-  　$( "#datepicker" ).datepicker( "option", 'maxDate', "+1m" );
-  });
-
 (function() {
   this.App || (this.App = {});
 
