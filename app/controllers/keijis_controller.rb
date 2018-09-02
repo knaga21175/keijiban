@@ -9,6 +9,9 @@ class KeijisController < ApplicationController
   end
 
   def kanri
+    # 掲載期限切れの掲示を削除
+    endofdate
+    
     @keijis = Keiji.order("created_at DESC")
   end
 
@@ -96,5 +99,16 @@ class KeijisController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def keiji_params
       params.require(:keiji).permit(:start, :end, :category_id, :title, :viewcount, :pdffile, :pdffile_file_name, :pdffile_content_type, :pdffile_file_size, :pdffile_updated_at )
+    end
+
+    #掲載期限切れの掲示を削除する
+    def endofdate
+        _d = Date.today
+        _k = Keiji.all
+         _k.each do |x|
+             if ( x.end < _d ) 
+                x.destroy
+             end
+        end
     end
 end
