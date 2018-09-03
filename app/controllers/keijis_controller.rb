@@ -5,14 +5,14 @@ class KeijisController < ApplicationController
   # GET /keijis
   # GET /keijis.json
   def index
-    @keijis = Keiji.order("created_at DESC")
+    @keijis = Keiji.order("updated_at DESC")
   end
 
   def kanri
     # 掲載期限切れの掲示を削除
     endofdate
     
-    @keijis = Keiji.order("created_at DESC")
+    @keijis = Keiji.order("updated_at DESC")
   end
 
   # GET /keijis/1
