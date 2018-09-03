@@ -89,7 +89,18 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # Do not dump schema after migrations.
-  config.action_mailer.default_url_options = { host: ENV["WEB_ADDRESS_ROOT"]}
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_options = {from: 'no-reply@example.com'}
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => false,
+    :openssl_verify_mode => 'none',
+    :address => "smtp.knaga.click",
+    :port => 25,
+    :authentication => "plain",
+    :domain => 'knaga.click',
+    :user_name => ENV['MAIL_ID'],
+    :password => ENV['MAIL_PASS'],
+  }
 
 end
