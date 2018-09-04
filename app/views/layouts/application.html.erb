@@ -4,21 +4,14 @@
     <title>App</title>
     <%= csrf_meta_tags %>
 
-    <%# ファビコン favicon %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+   
     <%= favicon_link_tag('favicon.png') %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/redmond/jquery-ui.css" >
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
-
-   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-   <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
-   <meta name="viewport" content="width=device-width,initial-scale=1">
-   
   </head>
 
   <body >

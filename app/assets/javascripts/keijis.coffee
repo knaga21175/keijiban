@@ -2,3 +2,13 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+# カレンダー表示用
+ready = ->
+    dateFormat = 'yy-mm-dd';
+    $('.date-picker').datepicker(
+        dateFormat: dateFormat,
+        minDate: new Date(),
+        maxDate: "+6m"
+    );
+$(document).ready(ready)
+$(document).on('turbolinks:load', ready)

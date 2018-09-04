@@ -11,16 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
+//= require jquery-ui/widgets/datepicker
+//= require jquery-ui/i18n/datepicker-ja
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-application.jsに　//= require_tree .
-
-    // カレンダー表示用
-$(function(){
-    　$("#datepicker").datepicker();
-    　$( "#datepicker" ).datepicker( "option", 'minDate', new Date() );
-    　$( "#datepicker" ).datepicker( "option", 'maxDate', "+6m" );
-    });
-    
