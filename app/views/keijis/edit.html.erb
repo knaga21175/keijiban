@@ -1,6 +1,41 @@
-<h1>Editing Keiji</h1>
+<h2>＜掲示物 登録＞</h2>
+<br/>
+<%= form_with(model: @keiji, local: true) do |form| %>
+  <% if @keiji.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@keiji.errors.count, "箇所") %> エラーがあります:</h2>
 
-<%= render 'form', keiji: @keiji %>
+      <ul>
+      <% @keiji.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= link_to 'Show', @keiji %> |
-<%= link_to 'Back', keijis_path %>
+  <div class="field">
+    タイトル：  <%= form.text_field :title, :size=>'70', id: :keiji_title %><br/><br/>
+  </div>
+
+  <div class="field">
+    掲示終了日付:
+        <%= form.text_field :end, id: :keiji_end, class:'date-picker', :size=>28 %>
+        <br><br>
+  </div>
+
+  <div class="field">
+    <%= "カテゴリ：" %><%= form.collection_select :category_id, @category, :id, :label %>
+  </div>
+<br>
+    <legend>ファイルを指定してください（PDFファイル）</legend>
+    ※ファイルを変更しない場合は、ファイルを選択しないでください<br>
+    <%= form.file_field :pdffile, :accept => 'application/pdf', :size=>'30', :placeholder=>"PDFファイルを選択してください" %>
+
+<br><br><br>
+  <div class="actions">
+    <%= form.submit "更新", data:{confirm: "タイトルは入力しましたか？\n掲示終了日・カテゴリは間違いありませんか？\n登録しますか？", disable_with: "送信中..."}%>
+  </div>
+<% end %>
+
+<br>
+<%= link_to 'もどる', kanri_keiji_path %>

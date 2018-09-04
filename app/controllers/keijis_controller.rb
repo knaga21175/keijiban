@@ -39,6 +39,7 @@ class KeijisController < ApplicationController
 
   # GET /keijis/1/edit
   def edit
+    @category = Category.all
   end
 
   # POST /keijis
@@ -74,6 +75,7 @@ class KeijisController < ApplicationController
         format.html { redirect_to kanri_keiji_path, notice: '更新しました' }
         format.json { render :show, status: :ok, location: @keiji }
       else
+        @category = Category.all
         format.html { render :edit }
         format.json { render json: @keiji.errors, status: :unprocessable_entity }
       end
