@@ -8,7 +8,8 @@ ready = ->
     $('.date-picker').datepicker(
         dateFormat: dateFormat,
         minDate: new Date(),
-        maxDate: "+6m"
+        maxDate: "+6m",
+        firstDay: 1
     );
 $(document).ready(ready)
 $(document).on('turbolinks:load', ready)

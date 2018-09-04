@@ -17,4 +17,36 @@ BODY{
     
     /* 背景画像が読み込まれる前に表示される背景のカラー */
     background-color: #464646;
-}
+
+    td {
+        white-space: nowrap;
+    }
+    th {
+        white-space: nowrap;
+    }
+
+    @media (max-width: 640px) {
+        .table-scroll {
+            overflow-x: scroll;
+        }
+    }
+
+    @media only screen and (max-width:400px) {
+        .scrollTable {
+            overflow: auto;
+            margin-bottom:20px;
+        }
+        .scrollTable table{
+            width:100%;
+            margin-bottom:0;
+        }
+        .scrollTable::-webkit-scrollbar{
+            height: 10px;
+        }
+        .scrollTable::-webkit-scrollbar-track{
+            background: #EEE;
+        }
+        .scrollTable::-webkit-scrollbar-thumb {
+            background: #999;
+    }
+}}
