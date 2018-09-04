@@ -10,8 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
+//= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+application.jsに　//= require_tree .
 
     // カレンダー表示用
 $(function(){

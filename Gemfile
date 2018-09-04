@@ -63,3 +63,6 @@ gem 'tzinfo-data'
 
 #gem 'paperclip', '~> 4.2.0'
 gem 'paperclip'
+
+gem 'jquery-rails' 
+gem 'jquery-ui-rails'
