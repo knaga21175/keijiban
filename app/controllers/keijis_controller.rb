@@ -21,10 +21,11 @@ class KeijisController < ApplicationController
     ### 閲覧数をカウントするために、あえてshowメソッドを通過させている
     _k = Keiji.find(params[:id])
     if( _k.pdffile_file_name != nil )
-        _path = ENV["WEB_ADDRESS_ROOT"] + "/" + _k.pdffile.url(:original) 
+#        _path = ENV["WEB_ADDRESS_ROOT"] + "/" + _k.pdffile.url(:original) 
+        _path = "/" + _k.pdffile.url(:original) 
         _k.viewcount += 1 
         _k.save
-        
+
         redirect_to _path
     else
         redirect_to action: 'index', notice: '表示するデータがありません' 
