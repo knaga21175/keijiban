@@ -32,8 +32,8 @@
                 <a href=<%= ( ENV["WEB_ADDRESS_ROOT"] + "/" + keiji.pdffile.url(:original)) %> target="_blank"><%= keiji.title %></a>
             <% end %>
         </td>
-        <td align=center ><%= keiji.start %></td>
-        <td align=center><%= keiji.end %></td>
+        <td align=center ><%= keiji.start.strftime("%y/%m/%d") %></td>
+        <td align=center><%= keiji.end.strftime("%y/%m/%d") %></td>
         <td align=center><%= keiji.viewcount %></td>
         <td><%= link_to '内容変更', edit_keiji_path(keiji) %></td>
         <td><%= link_to '削除', keiji, method: :delete, data: { confirm: '削除してよろしいですか?' } %></td>
