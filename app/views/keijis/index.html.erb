@@ -25,7 +25,7 @@
         </td>
         <td width="300">
             <% if keiji.pdffile_file_name != nil %>
-                <a href=<%= ("../" + keiji.pdffile.url(:original)) %> target="_blank"><%= keiji.title %></a>
+                <a href=<%= ( ENV["WEB_ADDRESS_ROOT"] + "/" + keiji.pdffile.url(:original)) %> target="_blank"><%= keiji.title %></a>
             <% end %>
         </td>
         <td align=center ><%= keiji.start %></td>
