@@ -29,7 +29,7 @@
         </td>
         <td width="300">
             <% if keiji.pdffile_file_name != nil %>
-                <a href=<%= ( ENV["WEB_ADDRESS_ROOT"] + "/" + keiji.pdffile.url(:original)) %> target="_blank"><%= keiji.title %></a>
+                <b><a href=<%= ( ENV["WEB_ADDRESS_ROOT"] + "/" + keiji.pdffile.url(:original)) %> target="_blank"><%= keiji.title %></a></b>
             <% end %>
         </td>
         <td align=center ><%= keiji.start.strftime("%y/%m/%d") %></td>
