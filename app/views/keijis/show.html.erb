@@ -17,7 +17,7 @@
 
 <p>
   <strong>Title:</strong>
-  <a href=<%= ("../" + @keiji.pdffile.url(:original)) %> target="_blank"><%= @keiji.title %></a>
+  <a href=<%= ( ENV["WEB_ADDRESS_ROOT"] + "/" + @keiji.pdffile.url(:original)) %> target="_blank"><%= @keiji.title %></a>
 
 </p>
 
