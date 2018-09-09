@@ -7,10 +7,10 @@
 export HOME=/home/ken
 
 #RBENV 関連の環境変数を追加
-export RBENV_ROOT=/opt/rbenv
-export PATH="$RBENV_ROOT/bin:$PATH"
-eval "$(rbenv init -)"
-export CONFIGURE_ARGS="with-gp-config=/usr/bin/pg_config"
+#export RBENV_ROOT=/opt/rbenv
+#export PATH="$RBENV_ROOT/bin:$PATH"
+#eval "$(rbenv init -)"
+#export CONFIGURE_ARGS="with-gp-config=/usr/bin/pg_config"
 
 ### 処理
 cd /app/golly/forest/
