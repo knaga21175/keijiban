@@ -32,14 +32,16 @@ class MyMailer < ActionMailer::Base
     ###########################
     def receive(email)
 
-p "receive！！！""
+p "receive！！！"
 
         logger = Logger.new('log/Mailin.log')
         logger.error email.from.first
         logger.error email.subject
         
         sub = email.subject.encode("UTF-8")
-        
+
+p sub        
+
         ##############################
         ### ユーザー登録の場合に処理 ###
         ##############################

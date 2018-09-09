@@ -17,5 +17,4 @@ cd /app/
 
 #Postfix からは、メール内容が標準入力として渡されるので、STDIN.read で取り込めば、
 #ActionMailler でパースが可能になる。
-#rails runner 'MyMailer.receive(STDIN.read)' -e production
-rails runner 'MyMailer.receive("")' -e production
+rails runner 'MyMailer.receive(STDIN.read)' -e production
