@@ -13,7 +13,7 @@ export HOME=/home/ken
 #export CONFIGURE_ARGS="with-gp-config=/usr/bin/pg_config"
 
 ### 処理
-cd /app/golly/forest/
+cd /app/
 
 #Postfix からは、メール内容が標準入力として渡されるので、STDIN.read で取り込めば、
 #ActionMailler でパースが可能になる。
