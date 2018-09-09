@@ -1,0 +1,20 @@
+#! /usr/bin/env bash
+
+### 環境設定
+#user は、PostFix のdefault_privs で設定しているからkenになっている
+
+#Postfix がHOMEの環境変数が無いのでセットする
+export HOME=/home/ken
+
+#RBENV 関連の環境変数を追加
+export RBENV_ROOT=/opt/rbenv
+export PATH="$RBENV_ROOT/bin:$PATH"
+eval "$(rbenv init -)"
+export CONFIGURE_ARGS="with-gp-config=/usr/bin/pg_config"
+
+### 処理
+cd /app/golly/forest/
+
+#Postfix からは、メール内容が標準入力として渡されるので、STDIN.read で取り込めば、
+#ActionMailler でパースが可能になる。
+rails runner 'MyMailer.receive(STDIN.read)' -e production
