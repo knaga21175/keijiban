@@ -31,7 +31,9 @@ class MyMailer < ActionMailer::Base
     ### PostFix からコールされる
     ###########################
     def receive(email)
-        
+
+p "receive！！！""
+
         logger = Logger.new('log/Mailin.log')
         logger.error email.from.first
         logger.error email.subject
