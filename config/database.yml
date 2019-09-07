@@ -5,10 +5,10 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: postgresql
-  database: keiji-am7
-  username: postgres
-  password: dbkomekome
+  adapter: <%= ENV["DB_ADAPTER"] %>
+  database: <%= ENV["DB_NAME"] %>
+  username: <%= ENV["DB_USERNAME"] %>
+  password: <%= ENV["DB_PASS"] %>
   pool: 5
   host: db
   encoding: utf8
